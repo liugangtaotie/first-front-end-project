@@ -23,7 +23,7 @@ const menuData = [
   //   ],
   // },
   {
-    name: 'dashboardTest',
+    name: '股票',
     icon: 'dashboard',
     path: 'stock',
     children: [
