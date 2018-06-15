@@ -47,7 +47,7 @@ export const getMenuMatchKeys = (flatMenuKeys, paths) =>
     .reduce((matchKeys, path) => (
       matchKeys.concat(
         flatMenuKeys.filter(item => pathToRegexp(item).test(path))
-    )), []);
+      )), []);
 
 export default class SiderMenu extends PureComponent {
   constructor(props) {
@@ -58,6 +58,7 @@ export default class SiderMenu extends PureComponent {
       openKeys: this.getDefaultCollapsedSubMenus(props),
     };
   }
+
   componentWillReceiveProps(nextProps) {
     if (nextProps.location.pathname !== this.props.location.pathname) {
       this.setState({
@@ -65,6 +66,7 @@ export default class SiderMenu extends PureComponent {
       });
     }
   }
+
   /**
    * Convert pathname to openKeys
    * /list/search/articles = > ['list','/list/search']
@@ -74,6 +76,7 @@ export default class SiderMenu extends PureComponent {
     const { location: { pathname } } = props || this.props;
     return getMenuMatchKeys(this.flatMenuKeys, urlToList(pathname));
   }
+
   /**
    * 判断是否是http链接.返回 Link 或 a
    * Judge whether it is http link.return a or Link
@@ -100,8 +103,8 @@ export default class SiderMenu extends PureComponent {
         onClick={
           this.props.isMobile
             ? () => {
-                this.props.onCollapse(true);
-              }
+              this.props.onCollapse(true);
+            }
             : undefined
         }
       >
@@ -190,6 +193,7 @@ export default class SiderMenu extends PureComponent {
       openKeys: moreThanOne ? [lastOpenKey] : [...openKeys],
     });
   };
+
   render() {
     const { logo, collapsed, onCollapse } = this.props;
     const { openKeys } = this.state;
@@ -197,8 +201,8 @@ export default class SiderMenu extends PureComponent {
     const menuProps = collapsed
       ? {}
       : {
-          openKeys,
-        };
+        openKeys,
+      };
     // if pathname can't match, use the nearest parent's key
     let selectedKeys = this.getSelectedMenuKeys();
     if (!selectedKeys.length) {
@@ -217,7 +221,7 @@ export default class SiderMenu extends PureComponent {
         <div className={styles.logo} key="logo">
           <Link to="/">
             <img src={logo} alt="logo" />
-            <h1>Ant Design Pro</h1>
+            <h1>AZero</h1>
           </Link>
         </div>
         <Menu
