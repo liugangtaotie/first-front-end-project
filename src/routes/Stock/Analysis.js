@@ -1,74 +1,44 @@
-import React, { Component, Fragment } from 'react';
-import { connect } from 'dva';
-import {
-  Row,
-  Col,
-  Icon,
-  Card,
-  Tabs,
-  Table,
-  Radio,
-  DatePicker,
-  Tooltip,
-  Menu,
-  Dropdown,
-} from 'antd';
-import numeral from 'numeral';
-import {
-  ChartCard,
-  yuan,
-  MiniArea,
-  MiniBar,
-  MiniProgress,
-  Field,
-  Bar,
-  Pie,
-  TimelineChart,
-} from 'components/Charts';
-import Trend from 'components/Trend';
-import NumberInfo from 'components/NumberInfo';
-import { getTimeDistance } from '../../utils/utils';
+import React, { PureComponent } from 'react';
+// 组件定义
+import G6 from '@antv/g6';
 
-import styles from './Analysis.less';
-
-@connect(({ chart, loading }) => ({
-  chart,
-  loading: loading.effects['chart/fetch'],
-}))
-export default class Analysis extends Component {
-  state = {
-    salesType: 'all',
-    currentTabKey: '',
-    rangePickerValue: getTimeDistance('year'),
-  };
-
+export default class Analysis extends PureComponent {
   componentDidMount() {
-    this.props.dispatch({
-      type: 'chart/fetch',
-    });
+    this.renderG6Graph();
   }
 
-  componentWillUnmount() {
-    const { dispatch } = this.props;
-    dispatch({
-      type: 'chart/clear',
-    });
+  componentDidUpdate() {
+    this.renderG6Graph();
   }
+
+  renderG6Graph = () => {
+    const data = {
+      nodes: [{
+        id: 'node1',
+        x: 100,
+        y: 200,
+      }, {
+        id: 'node2',
+        x: 300,
+        y: 200,
+      }],
+      edges: [{
+        id: 'edge1',
+        target: 'node2',
+        source: 'node1',
+      }],
+    };
+    const graph = new G6.Graph({
+      container: 'mountNode',
+      width: 500,
+      height: 500,
+    });
+    graph.read(data);
+  };
 
   render() {
     return (
-      <div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-        <div>一切事情,物来则应,过去不留</div>
-      </div>
+      <div id="mountNode" />
     );
   }
 }
