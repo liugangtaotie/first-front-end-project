@@ -9,7 +9,7 @@ import * as Service from '../../services/api';
 export default class Workplace extends PureComponent {
   componentDidMount() {
     Service.queryStockCandle().then((data) => {
-      console.info(2222, data);
+      console.info(555, data);
       if (data) {
         this.renderG6Graph(data);
       } else {
