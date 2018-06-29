@@ -96,9 +96,11 @@ export const getRouterData = app => {
       component: dynamicWrapper(app, ['project', 'activities', 'chart'], () =>
         import('../routes/Stock/Workplace')
       ),
-      // hideInBreadcrumb: true,
-      // name: '工作台',
-      // authority: 'admin',
+    },
+    '/stock/workplaceTest': {
+      component: dynamicWrapper(app, ['project', 'activities', 'chart'], () =>
+        import('../routes/Stock/WorkplaceTest')
+      ),
     },
     // '/form/basic-form': {
     //   component: dynamicWrapper(app, ['form'], () => import('../routes/Forms/BasicForm')),

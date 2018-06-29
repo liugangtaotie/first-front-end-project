@@ -38,8 +38,10 @@ const menuData = [
       {
         name: '股票工作台',
         path: 'workplace',
-        // hideInBreadcrumb: true,
-        // hideInMenu: true,
+      },
+      {
+        name: '股票工作台Test',
+        path: 'workplaceTest',
       },
     ],
   },

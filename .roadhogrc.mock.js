@@ -1,6 +1,6 @@
 import mockjs from 'mockjs';
 import { getRule, postRule } from './mock/rule';
-import { getActivities, getNotice, getFakeList } from './mock/api';
+import { getActivities, getNotice, getFakeList,getStock,getStockTest } from './mock/api';
 import { getFakeChartData } from './mock/chart';
 import { getProfileBasicData } from './mock/profile';
 import { getProfileAdvancedData } from './mock/profile';
@@ -28,6 +28,8 @@ const proxy = {
       notifyCount: 12,
     },
   },
+  'GET /api/queryStockData': getStock,
+  'GET /api/queryStockDataTest': getStockTest,
   // GET POST 可省略
   'GET /api/users': [
     {
