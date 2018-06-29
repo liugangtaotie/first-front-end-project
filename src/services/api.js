@@ -9,6 +9,10 @@ export async function queryStockDataTest() {
   return request('/api/queryStockDataTest');
 }
 
+export async function queryStockCandle() {
+  return request('/api/queryStockCandle');
+}
+
 export async function queryProjectNotice() {
   return request('/api/project/notice');
 }

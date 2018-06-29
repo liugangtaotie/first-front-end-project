@@ -4,13 +4,11 @@ import G2 from '@antv/g2';
 import  DataSet from '@antv/data-set';
 import Slider  from '@antv/g2-plugin-slider';
 import { message } from 'antd';
-// import DataSet from './DataSet';
-// import Slider from './Slider';
 import * as Service from '../../services/api';
 
 export default class Workplace extends PureComponent {
   componentDidMount() {
-    Service.queryStockData().then((data) => {
+    Service.queryStockCandle().then((data) => {
       console.info(2222, data);
       if (data) {
         this.renderG6Graph(data);
@@ -21,7 +19,7 @@ export default class Workplace extends PureComponent {
   }
 
   componentDidUpdate() {
-    Service.queryStockData().then((data) => {
+    Service.queryStockCandle().then((data) => {
       if (data) {
         this.renderG6Graph(data);
       } else {
