@@ -8,6 +8,7 @@ module.exports = {
     mocha: true,
     jest: true,
     jasmine: true,
+    EventSource: true,
   },
   rules: {
     'generator-star-spacing': [0],

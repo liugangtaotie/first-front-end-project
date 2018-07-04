@@ -1,10 +1,17 @@
 import React, { PureComponent } from 'react';
 // 组件定义
 import G6 from '@antv/g6';
+import * as Service from '../../services/aZero';
 
 export default class Analysis extends PureComponent {
   componentDidMount() {
     this.renderG6Graph();
+    Service.queryAZeroData().then((res) => {
+      console.info(11111, res);
+    });
+    Service.queryAZeroStreamData().then((res) => {
+      console.info(2222, res);
+    });
   }
 
   componentDidUpdate() {

@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<script>
+  const stream = new EventSource('http://35.194.132.93:8888/stock/cur_kline_stream?code=US.HUYA&ktype=K_1M');
+  stream.onmessage = function (e) {
+    console.info(133333, e);
+    console.info(e.data);
+  };
+</script>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,7 +16,7 @@
 </head>
 
 <body>
-  <div id="root"></div>
+<div id="root"></div>
 </body>
 
 </html>
