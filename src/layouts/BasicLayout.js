@@ -175,13 +175,13 @@ class BasicLayout extends React.PureComponent {
           onCollapse={this.handleMenuCollapse}
         />
         <Layout>
-          <Header style={{ padding: 0 }}>
-            <GlobalHeader
-              logo={logo}
-              collapsed={collapsed}
-              isMobile={this.state.isMobile}
-            />
-          </Header>
+          {/*<Header style={{ padding: 0 }}>*/}
+            {/*<GlobalHeader*/}
+              {/*logo={logo}*/}
+              {/*collapsed={collapsed}*/}
+              {/*isMobile={this.state.isMobile}*/}
+            {/*/>*/}
+          {/*</Header>*/}
           <Content style={{ margin: '24px 24px 0', height: '100%' }}>
             <Switch>
               {redirectData.map(item => (
